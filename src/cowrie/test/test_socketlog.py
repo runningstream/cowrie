@@ -20,7 +20,7 @@ TIMEOUT = 5
 class SocketLogTests(unittest.TestCase):
     def setUp(self):
         self.cfg = configparser.ConfigParser()
-        conf_str = "[output_socketlog]\naddress=localhost:{}\ntimeout={}".format(
+        conf_str = u"[output_socketlog]\naddress=localhost:{}\ntimeout={}".format(
             PORT, TIMEOUT)
         self.cfg.read_string(conf_str)
 
