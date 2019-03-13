@@ -10,12 +10,14 @@ from cowrie.core.config import CONFIG
 
 
 class Output(cowrie.core.output.Output):
-    def __init__(self):
-        addr = CONFIG.get('output_socketlog', 'address')
+    def __init__(self, cfg=None):
+        if cfg is None:
+            cfg = CONFIG
+        addr = cfg.get('output_socketlog', 'address')
         self.host = addr.split(':')[0]
         self.port = int(addr.split(':')[1])
 
-        self.timeout = CONFIG.getint('output_socketlog', 'timeout')
+        self.timeout = cfg.getint('output_socketlog', 'timeout')
         cowrie.core.output.Output.__init__(self)
 
     def start(self):
