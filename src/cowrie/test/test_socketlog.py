@@ -30,7 +30,7 @@ class SocketLogTests(unittest.TestCase):
 
         self.listenport.bind(("localhost", PORT))
         self.listenport.listen(10)
-    
+
         self.connected = None
         self.connect_event = threading.Event()
 
