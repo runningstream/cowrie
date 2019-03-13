@@ -16,12 +16,13 @@ from cowrie.output import socketlog
 PORT = 53483
 TIMEOUT = 5
 
+
 class SocketLogTests(unittest.TestCase):
     def setUp(self):
         self.cfg = configparser.ConfigParser()
         conf_str = "[output_socketlog]\naddress=localhost:{}\ntimeout={}".format(
             PORT, TIMEOUT)
-        cfg.read_string(conf_str)
+        self.cfg.read_string(conf_str)
 
         self.listenport = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.listenport.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
