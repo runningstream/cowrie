@@ -54,10 +54,10 @@ def get_config_path():
                     join(root, "etc/cowrie.cfg"), join(root, "cowrie.cfg")]
     found_confs = [path for path in config_files if exists(path)]
 
-    if found_confs:
-        return found_confs
+    if not found_confs:
+        print("Config file not found")
 
-    print("Config file not found")
+    return found_confs
 
 
 CONFIG = readConfigFile(get_config_path())
